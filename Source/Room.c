@@ -12,6 +12,7 @@ This file defines the Room interface, which is used to manage rooms in the game.
 #include "Room.h" /* Function declarations */
 #include "RoomExit.h" /* RoomExit_Add, RoomExit_Free, RoomExit_Print */
 #include "ItemList.h" /* ItemList_Free, ItemList_Print */
+#include "CharacterList.h"
 
 
 /* The maximum length of a room description string */
