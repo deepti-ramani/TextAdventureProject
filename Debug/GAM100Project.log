@@ -1,0 +1,32 @@
+﻿  WorldDataFactory.c
+  WorldData.c
+  UseCommandHandler.c
+  TakeCommandHandler.c
+  stdafx.c
+  RoomExit.c
+  Room.c
+  QuitCommandHandler.c
+  LookCommandHandler.c
+  ItemList.c
+  Item.c
+  InventoryCommandHandler.c
+  InputProvider.c
+  HelpCommandHandler.c
+  GoldPieceFunctions.c
+  GoCommandHandler.c
+  GameStateFactory.c
+  GameState.c
+  GameFlags.c
+  ExitDoorFunctions.c
+  Generating Code...
+  Compiling...
+  EggFunctions.c
+  DropCommandHandler.c
+  CommandList.c
+  CommandHandler.c
+  BrickFunctions.c
+  main.c
+  CommandListFactory.c
+  Generating Code...
+  GAM100Project.vcxproj -> C:\Users\ryan.scheppler\Desktop\GAM100Spring2018\C\Projects\Assignment2-TextAdventure\Debug\GAM100Project.exe
+  GAM100Project.vcxproj -> C:\Users\ryan.scheppler\Desktop\GAM100Spring2018\C\Projects\Assignment2-TextAdventure\Debug\GAM100Project.pdb (Partial PDB)
