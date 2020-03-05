@@ -27,6 +27,8 @@ void Room_Free(Room** roomPtr);
 /* Get a reference to the item list in the given room */
 ItemList** Room_GetItemList(Room* room);
 
+CharacterList** Room_GetCharacterList(Room* room);
+
 /* Get the room index in the direction specified from the given room */
 bool Room_GetNextRoomIndex(Room *room, const char* direction, int* outNextRoomIndex); 
 

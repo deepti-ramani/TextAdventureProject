@@ -15,6 +15,8 @@ This could be used to create default states as well as loaded state.
 #include "WorldData.h" /* WorldData_Create, WorldData_SetRoom */
 #include "Room.h" /* Room_Create, Room_AddRoomExit, Room_GetItemList */
 #include "ItemList.h" /* ItemList_Add */
+#include "CharacterList.h"
+#include "Character.h"
 #include "BrickFunctions.h" /* Brick_Build */
 #include "GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
@@ -42,6 +44,8 @@ Room* RoomN_Build()
 	   add items to the room */
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
+	/* Add characters to the room */
+	CharacterList_Add(Room_GetCharacterList(room), Character_Create("name", "description", "opening dialogue", "regular dialogue", "hidden dialogue", false));
 	/* Return the new room */
 	return room;
 }

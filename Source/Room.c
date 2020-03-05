@@ -25,6 +25,7 @@ typedef struct Room
 	char description[MAX_ROOM_DESCRIPTION_LENGTH]; /* The description of the room */
 	ItemList* itemList; /* A list of items in the room */
 	RoomExit* roomExitHead; /* A list of exits from the room */
+	CharacterList* characterList;
 } Room;
 
 
@@ -52,6 +53,7 @@ Room* Room_Create(const char* description)
 
 	/* initialize the new room's list pointers to NULL */
 	room->itemList = NULL;
+	room->characterList = NULL;
 	room->roomExitHead = NULL;
 	
 	/* return the new Room object */
@@ -87,6 +89,16 @@ ItemList** Room_GetItemList(Room* room)
 {
 	/* return the data if the parameter is not NULL, otherwise return NULL */
 	return (room != NULL) ? &(room->itemList) : NULL;
+}
+
+/* get a reference to the room's character list */
+CharacterList** Room_GetCharacterList(Room* room)
+{
+	if (room != NULL)
+	{
+		return room->characterList;
+	}
+	return NULL;
 }
 
 
