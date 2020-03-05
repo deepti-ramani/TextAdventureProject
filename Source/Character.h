@@ -9,8 +9,6 @@ typedef struct Character Character;
 
 Character* Character_Create(const char* name, const char* description, const char* openingDialogue, const char* regularDialogue, const char* hiddenDialogue, bool hiddenDialogueUnlocked);
 
-void Character_Free(Character** characterPtr);
-
 const char* Character_GetName(Character* character);
 
 const char* Character_GetDescription(Character* character);

@@ -58,18 +58,6 @@ Character* Character_Create(const char* name, const char* description, const cha
 	return character;
 }
 
-void Character_Free(Character** characterPtr)
-{
-	if (characterPtr == NULL | *characterPtr == NULL)
-	{
-		return;
-	}
-
-	free(*characterPtr);
-
-	*characterPtr = NULL;
-}
-
 const char* Character_GetName(Character* character)
 {
 	if (character != NULL)
