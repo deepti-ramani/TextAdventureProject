@@ -19,6 +19,8 @@ const char* Character_GetRegularDialogue(Character* character);
 
 const char* Character_GetHiddenDialogue(Character* character);
 
-void UpdateConversationCount(Character* character);
+int Character_GetConversationCount(Character* character);
+
+void Character_UpdateConversationCount(Character* character);
 
 void Character_Print(Character* character);

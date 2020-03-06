@@ -103,7 +103,16 @@ const char* Character_GetHiddenDialogue(Character* character)
 	return NULL;
 }
 
-void UpdateConversationCount(Character* character)
+int Character_GetConversationCount(Character* character)
+{
+	if (character != NULL)
+	{
+		return character->conversationCounter;
+	}
+	return 0;
+}
+
+void Character_UpdateConversationCount(Character* character)
 {
 	character->conversationCounter++;
 }

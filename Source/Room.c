@@ -96,7 +96,7 @@ CharacterList** Room_GetCharacterList(Room* room)
 {
 	if (room != NULL)
 	{
-		return room->characterList;
+		return &(room->characterList);
 	}
 	return NULL;
 }
@@ -211,5 +211,13 @@ void PrintRoomExits(RoomExit* roomExitList)
 	/* print the list itself */
 	RoomExit_Print(roomExitList);
 
+	printf(".\n");
+}
+
+/* Helper: Print the list of characters in a room */
+void PrintRoomCharacters(CharacterList* characterList)
+{
+	printf("In this room, you see: ");
+	CharacterList_Print(characterList);
 	printf(".\n");
 }

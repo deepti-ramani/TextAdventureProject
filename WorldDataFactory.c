@@ -44,8 +44,10 @@ Room* RoomN_Build()
 	   add items to the room */
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
-	/* Add characters to the room */
-	CharacterList_Add(Room_GetCharacterList(room), Character_Create("name", "description", "opening dialogue", "regular dialogue", "hidden dialogue", false));
+	/* Add characters to the room: use this format for creating characters, make sure the descriptions will flow in a sentence */
+	/* i.e: "this is <name>, <description> */
+	
+	CharacterList_Add(Room_GetCharacterList(room), Character_Create("Person", "an average joe who diesn't really have any defining characteristics", "Hi! I'm a person!", "I'm having a great day!", "I don't have any secrets", false));
 	/* Return the new room */
 	return room;
 }

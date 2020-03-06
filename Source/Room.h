@@ -12,7 +12,7 @@ This file declares the Room interface, which is used to manage rooms in the game
 #include "stdafx.h" /* bool */
 
 typedef struct ItemList ItemList;
-
+typedef struct CharacterList CharacterList;
 
 /* Forward declaration of the Room type */
 typedef struct Room Room;
@@ -27,6 +27,7 @@ void Room_Free(Room** roomPtr);
 /* Get a reference to the item list in the given room */
 ItemList** Room_GetItemList(Room* room);
 
+/* get a reference to the character list in the given room */
 CharacterList** Room_GetCharacterList(Room* room);
 
 /* Get the room index in the direction specified from the given room */

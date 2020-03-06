@@ -1,32 +1,33 @@
-﻿  WorldDataFactory.c
-  WorldData.c
-  UseCommandHandler.c
-  TakeCommandHandler.c
-  stdafx.c
-  RoomExit.c
-  Room.c
-  QuitCommandHandler.c
-  LookCommandHandler.c
-  ItemList.c
-  Item.c
-  InventoryCommandHandler.c
-  InputProvider.c
-  HelpCommandHandler.c
-  GoldPieceFunctions.c
-  GoCommandHandler.c
-  GameStateFactory.c
-  GameState.c
-  GameFlags.c
+﻿  CommandListFactory.c
+  main.c
+  BrickFunctions.c
+  Character.c
+  CharacterList.c
+  CommandHandler.c
+  CommandList.c
+  DropCommandHandler.c
+  EggFunctions.c
   ExitDoorFunctions.c
+  GameFlags.c
+  GameState.c
+  GameStateFactory.c
+  GoCommandHandler.c
+  GoldPieceFunctions.c
+  HelpCommandHandler.c
+  InputProvider.c
+  InventoryCommandHandler.c
+  Item.c
+  ItemList.c
   Generating Code...
   Compiling...
-  EggFunctions.c
-  DropCommandHandler.c
-  CommandList.c
-  CommandHandler.c
-  BrickFunctions.c
-  main.c
-  CommandListFactory.c
+  LookCommandHandler.c
+  QuitCommandHandler.c
+  Room.c
+  RoomExit.c
+  stdafx.c
+  TakeCommandHandler.c
+  UseCommandHandler.c
+  WorldData.c
+  WorldDataFactory.c
   Generating Code...
-  GAM100Project.vcxproj -> C:\Users\ryan.scheppler\Desktop\GAM100Spring2018\C\Projects\Assignment2-TextAdventure\Debug\GAM100Project.exe
-  GAM100Project.vcxproj -> C:\Users\ryan.scheppler\Desktop\GAM100Spring2018\C\Projects\Assignment2-TextAdventure\Debug\GAM100Project.pdb (Partial PDB)
+  GAM100Project.vcxproj -> C:\Users\deepti.ramani\Documents\TextAdventureVisualStudio\TextAdventureProject\Debug\GAM100Project.exe
