@@ -177,10 +177,10 @@
     <ClInclude Include="Source\WorldDataFactory.h">
       <Filter>World Data</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Character.h">
+    <ClInclude Include="Source\CharacterList.h">
       <Filter>World Data</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterList.h">
+    <ClInclude Include="Source\Character.h">
       <Filter>World Data</Filter>
     </ClInclude>
   </ItemGroup>

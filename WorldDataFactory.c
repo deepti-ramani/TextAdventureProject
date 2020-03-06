@@ -135,7 +135,7 @@ WorldData* CreateInitialWorldData()
 	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);
 
 	/* build each room and assign them to the world data */
-	WorldData_SetRoom(worldData, 0, Room0_Build());
+	WorldData_SetRoom(worldData, 0, RoomN_Build());
 	/* TODO REQUIRED: add rooms 1 and 2 to the world data */
 
 	/* TODO ADVANCED: add additional advanced rooms */
