@@ -1,6 +1,23 @@
-@@ -41,6 +41,126 @@ This could be used to create default states as well as loaded state.
-//	return room;
-//}
+/******************************************************************************
+filename    WorldDataFactory.c
+author      Justin Chambers
+DP email    justin.chambers@digipen.edu
+course      GAM100 ** Do not use this code in your team project
+
+Brief Description:
+This file defines the WorldData factory, which creates the WorldData objects used
+in this game.
+
+This could be used to create default states as well as loaded state.
+
+******************************************************************************/
+#include "WorldDataFactory.h" /* Function declarations */
+#include "WorldData.h" /* WorldData_Create, WorldData_SetRoom */
+#include "Room.h" /* Room_Create, Room_AddRoomExit, Room_GetItemList */
+#include "ItemList.h" /* ItemList_Add */
+#include "BrickFunctions.h" /* Brick_Build */
+#include "GoldPieceFunctions.h" /* GoldPiece_Build */
+#include "ExitDoorFunctions.h" /* ExitDoor_Build */
 
 Room* Room1_Build()
 {
@@ -124,8 +141,24 @@ Room* Room8_Build()
 
 Room* Room9_Build()
 {
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
-@ -58,22 +178,136 @@ Room* Room9_Build()
+
+	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
+	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
+	room = Room_Create("A Dimly Lit Room with the Lights Flickering Repeatedly. In the Room's Corner, there is a Humanoid Figure Sitting Down.\n");
+	/*Exit Description*/
+	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
+	Room_AddRoomExit(room, "Forward", 10);
+	Room_PrintExitDesc(room, "There is a Keycard Reader at the Door.");
+	/* TODO BASIC: Add room exit shortcut for "n" */
+	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* TODO ADVANCED: (not required) update the description and add a room exit to the "east" */
+
+	/* return the new room */
+	return room;
+}
 
 Room* Room10_Build()
 {
@@ -272,11 +305,11 @@ Room* Room18_Build()
 	return room;
 }
 
-@ -87,16 +321,28 @@ WorldData* CreateInitialWorldData()
-
+WorldData* CreateInitialWorldData()
+{
+	WorldData* worldData;
 	/* TODO REQUIRED: update room count to match the number of rooms you have created and added to the world
 	   if this number doesn't match then your game will either crash or you will end up stuck in a broken room with no exits */
-	int roomCount = 2;
 	int roomCount = 18;
 
 	/* create the new WorldData object with 3 rooms */
