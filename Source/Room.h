@@ -44,3 +44,5 @@ void Room_SetDescription(Room* room, const char* description);
 
 /* Print the description of the given room to standard output */
 void Room_Print(Room *room);
+
+void Room_PrintExitDesc(Room* room, const char* exitdesc);
