@@ -19,29 +19,13 @@ This could be used to create default states as well as loaded state.
 #include "GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
 
-Room* Room0_Build()
-{
-	Room* room = NULL;
-
-	room = Room_Create("Room #0.\n");
-
-	Room_AddRoomExit(room, "east", 1);
-
-	Room_PrintExitDesc(room, "Description of the Door");
-
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-
-	return room;
-}
-
 Room* Room1_Build()
 {
 	Room* room = NULL;
 
 	room = Room_Create("Room #1.\n");
 
-	Room_AddRoomExit(room, "west", 0);
-	Room_AddRoomExit(room, "east", 2);
+	Room_AddRoomExit(room, "Direction", 2);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -56,10 +40,7 @@ Room* Room2_Build()
 
 	room = Room_Create("Room #2.\n");
 
-	Room_AddRoomExit(room, "north", 3);
-	Room_AddRoomExit(room, "east", 4);
-	Room_AddRoomExit(room, "south", 6);
-	Room_AddRoomExit(room, "west", 1);
+	Room_AddRoomExit(room, "Direction", 3);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -74,7 +55,7 @@ Room* Room3_Build()
 
 	room = Room_Create("Room #3.\n");
 
-	Room_AddRoomExit(room, "south", 2);
+	Room_AddRoomExit(room, "Direction", 4);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -89,10 +70,7 @@ Room* Room4_Build()
 
 	room = Room_Create("Room #4.\n");
 
-	Room_AddRoomExit(room, "north", 7);
-	Room_AddRoomExit(room, "east", 8);
-	Room_AddRoomExit(room, "south", 5);
-	Room_AddRoomExit(room, "west", 2);
+	Room_AddRoomExit(room, "Direction", 5);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -107,8 +85,7 @@ Room* Room5_Build()
 
 	room = Room_Create("Room #5.\n");
 
-	Room_AddRoomExit(room, "north", 4);
-	Room_AddRoomExit(room, "east", 6);
+	Room_AddRoomExit(room, "Direction", 6);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -123,8 +100,7 @@ Room* Room6_Build()
 
 	room = Room_Create("Room #6.\n");
 
-	Room_AddRoomExit(room, "north", 2);
-	Room_AddRoomExit(room, "east", 5);
+	Room_AddRoomExit(room, "Direction", 7);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -139,8 +115,7 @@ Room* Room7_Build()
 
 	room = Room_Create("Room #7.\n");
 
-	Room_AddRoomExit(room, "south", 4);
-	Room_AddRoomExit(room, "down", 13);
+	Room_AddRoomExit(room, "Direction", 8);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -150,6 +125,21 @@ Room* Room7_Build()
 }
 
 Room* Room8_Build()
+{
+	Room* room = NULL;
+
+	room = Room_Create("Room #8.\n");
+
+	Room_AddRoomExit(room, "Direction", 9);
+
+	Room_PrintExitDesc(room, "Description of the Door");
+
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+
+	return room;
+}
+
+Room* Room9_Build()
 {
 	/* TODO: Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
@@ -170,7 +160,7 @@ Room* Room8_Build()
 	return room;
 }
 
-Room* Room9_Build()
+Room* Room10_Build()
 {
 	/* TODO: Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
@@ -193,28 +183,13 @@ Room* Room9_Build()
 	return room;
 }
 
-Room* Room10_Build()
-{
-	Room* room = NULL;
-
-	room = Room_Create("Room #10.\n");
-
-	Room_AddRoomExit(room, "Direction", 12);
-
-	Room_PrintExitDesc(room, "Description of the Door");
-
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-
-	return room;
-}
-
 Room* Room11_Build()
 {
 	Room* room = NULL;
 
 	room = Room_Create("Room #11.\n");
 
-	Room_AddRoomExit(room, "Direction", 13);
+	Room_AddRoomExit(room, "Direction", 12);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -229,7 +204,7 @@ Room* Room12_Build()
 
 	room = Room_Create("Room #12.\n");
 
-	Room_AddRoomExit(room, "Direction", 14);
+	Room_AddRoomExit(room, "Direction", 13);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -244,7 +219,7 @@ Room* Room13_Build()
 
 	room = Room_Create("Room #13.\n");
 
-	Room_AddRoomExit(room, "Direction", 15);
+	Room_AddRoomExit(room, "Direction", 14);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -259,7 +234,7 @@ Room* Room14_Build()
 
 	room = Room_Create("Room #14.\n");
 
-	Room_AddRoomExit(room, "Direction", 16);
+	Room_AddRoomExit(room, "Direction", 15);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -274,7 +249,7 @@ Room* Room15_Build()
 
 	room = Room_Create("Room #15.\n");
 
-	Room_AddRoomExit(room, "Direction", 17);
+	Room_AddRoomExit(room, "Direction", 16);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -289,7 +264,7 @@ Room* Room16_Build()
 
 	room = Room_Create("Room #16.\n");
 
-	Room_AddRoomExit(room, "Direction", 18);
+	Room_AddRoomExit(room, "Direction", 17);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -303,6 +278,21 @@ Room* Room17_Build()
 	Room* room = NULL;
 
 	room = Room_Create("Room #17.\n");
+
+	Room_AddRoomExit(room, "Direction", 18);
+
+	Room_PrintExitDesc(room, "Description of the Door");
+
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+
+	return room;
+}
+
+Room* Room18_Build()
+{
+	Room* room = NULL;
+
+	room = Room_Create("Room #18.\n");
 
 	Room_AddRoomExit(room, "Back", 17);
 
@@ -327,25 +317,27 @@ WorldData* CreateInitialWorldData()
 
 	/* build each room and assign them to the world data */
 	/* TODO REQUIRED: add rooms 1 and 2 to the world data */
+	WorldData_SetRoom(worldData, 0 , Room9_Build());
 	/* TODO ADVANCED: add additional advanced rooms */
-	WorldData_SetRoom(worldData, 0, Room0_Build());
-	WorldData_SetRoom(worldData, 1, Room1_Build());
-	WorldData_SetRoom(worldData, 2, Room2_Build());
-	WorldData_SetRoom(worldData, 3, Room3_Build());
-	WorldData_SetRoom(worldData, 4, Room4_Build());
-	WorldData_SetRoom(worldData, 5, Room5_Build());
-	WorldData_SetRoom(worldData, 6, Room6_Build());
-	WorldData_SetRoom(worldData, 7, Room7_Build());
-	WorldData_SetRoom(worldData, 8, Room8_Build());
-	WorldData_SetRoom(worldData, 9, Room9_Build());
-	WorldData_SetRoom(worldData, 10, Room10_Build());
-	WorldData_SetRoom(worldData, 11, Room11_Build());
-	WorldData_SetRoom(worldData, 12, Room12_Build());
-	WorldData_SetRoom(worldData, 13, Room13_Build());
-	WorldData_SetRoom(worldData, 14, Room14_Build());
-	WorldData_SetRoom(worldData, 15, Room15_Build());
-	WorldData_SetRoom(worldData, 16, Room16_Build());
-	WorldData_SetRoom(worldData, 17, Room17_Build());
+	WorldData_SetRoom(worldData, 1, Room10_Build());
+	WorldData_SetRoom(worldData, 0, Room1_Build());
+	WorldData_SetRoom(worldData, 1, Room2_Build());
+	WorldData_SetRoom(worldData, 2, Room3_Build());
+	WorldData_SetRoom(worldData, 3, Room4_Build());
+	WorldData_SetRoom(worldData, 4, Room5_Build());
+	WorldData_SetRoom(worldData, 5, Room6_Build());
+	WorldData_SetRoom(worldData, 6, Room7_Build());
+	WorldData_SetRoom(worldData, 7, Room8_Build());
+	WorldData_SetRoom(worldData, 8 , Room9_Build());
+	WorldData_SetRoom(worldData, 9, Room10_Build());
+	WorldData_SetRoom(worldData, 10, Room11_Build());
+	WorldData_SetRoom(worldData, 11, Room12_Build());
+	WorldData_SetRoom(worldData, 12, Room13_Build());
+	WorldData_SetRoom(worldData, 13, Room14_Build());
+	WorldData_SetRoom(worldData, 14, Room15_Build());
+	WorldData_SetRoom(worldData, 15, Room16_Build());
+	WorldData_SetRoom(worldData, 16, Room17_Build());
+	WorldData_SetRoom(worldData, 17, Room18_Build());
 	/* return the new object */
 	return worldData;
 }
