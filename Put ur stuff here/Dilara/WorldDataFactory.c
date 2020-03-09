@@ -57,7 +57,7 @@ Room* Room3_Build()
 
 	Room_AddRoomExit(room, "Direction", 4);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "The door is broken. You see a woman in the corner.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -72,7 +72,7 @@ Room* Room4_Build()
 
 	Room_AddRoomExit(room, "Direction", 5);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "The room is white and blank.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
