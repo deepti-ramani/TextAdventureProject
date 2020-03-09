@@ -159,7 +159,8 @@ Room* Room8_Build()
 	room = Room_Create("A Dimly Lit Room with the Lights Flickering Repeatedly. In the Room's Corner, there is a Humanoid Figure Sitting Down.\n");
 	/*Exit Description*/
 	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
-	Room_AddRoomExit(room, "Forward", 10);
+	Room_AddRoomExit(room, "west", 4);
+	Room_AddRoomExit(room, "east", 9);
 	Room_PrintExitDesc(room, "There is a Keycard Reader at the Door.");
 	/* TODO BASIC: Add room exit shortcut for "n" */
 	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
@@ -180,10 +181,10 @@ Room* Room9_Build()
 	room = Room_Create("There is an Elevator at the End of the Room.\n");
 	/*Exit Description*/
 	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
-	Room_AddRoomExit(room, "Back", 9);
-
-	Room_AddRoomExit(room, "Forward", 11);
-
+	Room_AddRoomExit(room, "west", 8);
+	Room_AddRoomExit(room, "up", 14);
+	Room_AddRoomExit(room, "down", 10);
+	
 	Room_PrintExitDesc(room, "There is a Keycard Reader at the Elevator.");
 	/* TODO BASIC: Add room exit shortcut for "n" */
 	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
@@ -199,7 +200,8 @@ Room* Room10_Build()
 
 	room = Room_Create("Room #10.\n");
 
-	Room_AddRoomExit(room, "Direction", 12);
+	Room_AddRoomExit(room, "west", 11);
+	Room_AddRoomExit(room, "up", 9);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -214,7 +216,8 @@ Room* Room11_Build()
 
 	room = Room_Create("Room #11.\n");
 
-	Room_AddRoomExit(room, "Direction", 13);
+	Room_AddRoomExit(room, "west", 12);
+	Room_AddRoomExit(room, "east", 10);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -229,7 +232,8 @@ Room* Room12_Build()
 
 	room = Room_Create("Room #12.\n");
 
-	Room_AddRoomExit(room, "Direction", 14);
+	Room_AddRoomExit(room, "north", 13);
+	Room_AddRoomExit(room, "east", 11);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -244,7 +248,8 @@ Room* Room13_Build()
 
 	room = Room_Create("Room #13.\n");
 
-	Room_AddRoomExit(room, "Direction", 15);
+	Room_AddRoomExit(room, "up", 7);
+	Room_AddRoomExit(room, "south", 12);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -259,7 +264,8 @@ Room* Room14_Build()
 
 	room = Room_Create("Room #14.\n");
 
-	Room_AddRoomExit(room, "Direction", 16);
+	Room_AddRoomExit(room, "west", 15);
+	Room_AddRoomExit(room, "down", 9);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -274,7 +280,9 @@ Room* Room15_Build()
 
 	room = Room_Create("Room #15.\n");
 
-	Room_AddRoomExit(room, "Direction", 17);
+	Room_AddRoomExit(room, "west", 16);
+	Room_AddRoomExit(room, "east", 14);
+	Room_AddRoomExit(room, "south", 17);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -289,7 +297,7 @@ Room* Room16_Build()
 
 	room = Room_Create("Room #16.\n");
 
-	Room_AddRoomExit(room, "Direction", 18);
+	Room_AddRoomExit(room, "east", 15);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -304,7 +312,7 @@ Room* Room17_Build()
 
 	room = Room_Create("Room #17.\n");
 
-	Room_AddRoomExit(room, "Back", 17);
+	Room_AddRoomExit(room, "north", 16);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
