@@ -5,5 +5,5 @@ typedef struct GameState GameState;
 typedef struct WorldData WorldData;
 
 
-/* Handles the ask command */
-void HandleAskCommand(CommandData* command, GameState *gameState, WorldData *worldData);
+/* Handles the "listen" command */
+void HandleListenCommand(CommandData* command, GameState *gameState, WorldData *worldData);

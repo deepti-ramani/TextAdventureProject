@@ -8,7 +8,7 @@
 #include "Character.h"
 
 
-/* Handles the "look" command, which outputs a description of an item or the current room */
+/* Handles the ask command */
 void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* worldData)
 {
 	Character* character;
