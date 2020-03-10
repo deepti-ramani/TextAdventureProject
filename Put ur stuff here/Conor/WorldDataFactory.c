@@ -87,14 +87,19 @@ Room* Room4_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #4.\n");
+	room = Room_Create("The room seems to have taken some damage during the attack. The door to the south looks like it got caught in an explosion and could collapse at any moment. The doors to the north and east are both locked. There's a terminal that's still working in the center of the room, and it looks like it's awaiting an input.\n");
 
 	Room_AddRoomExit(room, "north", 7);
+	Room_PrintExitDesc(room, "You place the access card against the reader next to the door. It opens and you step through.");
+	
 	Room_AddRoomExit(room, "east", 8);
+	Room_PrintExitDesc(room, "You place the access card against the reader next to the door. It opens and you step through.");
+	
 	Room_AddRoomExit(room, "south", 5);
+	Room_PrintExitDesc(room, "You're just able to squeeze through the door, put your foot accidentally knocked over a piece of debris holding the ceiling up, causing it to collapse. You dive into the next room, just avoiding being crushed, but it will be impossible to go back that way now.");
+	
 	Room_AddRoomExit(room, "west", 2);
-
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "The door is unlocked, and opens automatically when you approach it, allowing you to walk through.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -105,12 +110,10 @@ Room* Room5_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #5.\n");
-
-	Room_AddRoomExit(room, "north", 4);
-	Room_AddRoomExit(room, "east", 6);
-
-	Room_PrintExitDesc(room, "Description of the Door");
+	room = Room_Create("When you entered the room, the door you came through collapsed. It's almost completely pitch black, but you can just make out the silhouette of a large creature crouched over what looks like a body. You can see light peaking out from underneath a door to the west.\n");
+	
+	Room_AddRoomExit(room, "west", 6);
+	Room_PrintExitDesc(room, "The creature turns and lunges towards you as you run to the door, but you're able to slip through and lock the door behind you before it catches up to you..");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
