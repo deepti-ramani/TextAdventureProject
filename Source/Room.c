@@ -22,6 +22,7 @@ This file defines the Room interface, which is used to manage rooms in the game.
 /* A room in the game */
 typedef struct Room
 {
+	char roomdialog[MAX_ROOM_DESCRIPTION_LENGTH];
 	char exitdesc[MAX_ROOM_DESCRIPTION_LENGTH];
 	char description[MAX_ROOM_DESCRIPTION_LENGTH]; /* The description of the room */
 	ItemList* itemList; /* A list of items in the room */
@@ -168,6 +169,17 @@ void Room_PrintExitDesc(Room* room, const char* doordesc)
 	/* return the new Room object */
 }
 
+void Room_PrintDialog(Room* room, const char* dialog)
+{
+	if ((room == NULL) || (dialog == NULL))
+	{
+		return; /* take no action if the parameters are invalid */
+	}
+	/* copy the data from the parameters to the new object */
+	strcpy_s(room->roomdialog, MAX_ROOM_DESCRIPTION_LENGTH, dialog);
+	/* return the new Room object */
+}
+
 
 /* Print the description of the given room to standard output */
 void Room_Print(Room* room)
@@ -180,7 +192,9 @@ void Room_Print(Room* room)
 
 	/* print the room description */
 	printf(room->description);
-
+	printf("\n");
+	printf(room->roomdialog);
+	printf("\n");
 	/* print the set of items in the room */
 	PrintRoomItems(room->itemList);
 
@@ -188,6 +202,7 @@ void Room_Print(Room* room)
 	PrintRoomExits(room->roomExitHead);
 
 	printf(room->exitdesc);
+	printf("\n");
 }
 
 

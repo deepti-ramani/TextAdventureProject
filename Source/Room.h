@@ -46,3 +46,5 @@ void Room_SetDescription(Room* room, const char* description);
 void Room_Print(Room *room);
 
 void Room_PrintExitDesc(Room* room, const char* exitdesc);
+
+void Room_PrintDialog(Room* room, const char* roomdialog);
