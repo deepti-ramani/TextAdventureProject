@@ -139,44 +139,35 @@ Room* Room8_Build()
 	return room;
 }
 
-Room* Room9_Build()
+Room* Room8_Build()
 {
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
-
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
+	
 	room = Room_Create("A Dimly Lit Room with the Lights Flickering Repeatedly. In the Room's Corner, there is a Humanoid Figure Sitting Down.\n");
-	/*Exit Description*/
-	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
-	Room_AddRoomExit(room, "Forward", 10);
-	Room_PrintExitDesc(room, "There is a Keycard Reader at the Door.");
-	/* TODO BASIC: Add room exit shortcut for "n" */
-	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-	/* TODO ADVANCED: (not required) update the description and add a room exit to the "east" */
+	
+	Room_AddRoomExit(room, "west", 4);
+	Room_AddRoomExit(room, "east", 9);
 
-	/* return the new room */
+	
+	Room_PrintExitDesc(room, "There is a Keycard Reader at the Door.");
+	
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	
 	return room;
 }
 
-Room* Room10_Build()
+Room* Room9_Build()
 {
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	
 	Room* room = NULL;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
 	room = Room_Create("There is an Elevator at the End of the Room.\n");
-	/*Exit Description*/
-	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
-	Room_AddRoomExit(room, "Back", 9);
+	
+	Room_AddRoomExit(room, "west", 8);
+	Room_AddRoomExit(room, "up", 14);
+	Room_AddRoomExit(room, "down", 10);
 
-	Room_AddRoomExit(room, "Forward", 11);
-
-	Room_PrintExitDesc(room, "There is a Keycard Reader at the Elevator.");
-	/* TODO BASIC: Add room exit shortcut for "n" */
-	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
+	Room_PrintExitDesc(room, "There is an Elevator at the End of the Room, it has two Directions to Travel to: Up and Down. There is a Door Traveling towards West.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -189,7 +180,6 @@ Room* Room11_Build()
 
 	room = Room_Create("Room #11.\n");
 
-	Room_AddRoomExit(room, "Direction", 12);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
