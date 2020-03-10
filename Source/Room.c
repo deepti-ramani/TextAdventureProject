@@ -28,6 +28,7 @@ typedef struct Room
 	ItemList* itemList; /* A list of items in the room */
 	RoomExit* roomExitHead; /* A list of exits from the room */
 	CharacterList* characterList;
+	const char* listenDescription;	/* can't get this from "look", only from "listen" */
 } Room;
 
 
@@ -102,7 +103,6 @@ CharacterList** Room_GetCharacterList(Room* room)
 	return NULL;
 }
 
-
 /* Get the room index in the direction specified from the given room */
 bool Room_GetNextRoomIndex(Room* room, const char* direction, int* outNextRoomIndex)
 {
@@ -157,6 +157,12 @@ void Room_SetDescription(Room* room, const char* description)
 	strcpy_s(room->description, MAX_ROOM_DESCRIPTION_LENGTH, description);
 }
 
+/* add a listen description */
+void Room_SetListenDescription(Room* room, const char* listenDescription)
+{
+	room->listenDescription = listenDescription;
+}
+
 
 void Room_PrintExitDesc(Room* room, const char* doordesc)
 {
@@ -192,9 +198,7 @@ void Room_Print(Room* room)
 
 	/* print the room description */
 	printf(room->description);
-	printf("\n");
 	printf(room->roomdialog);
-	printf("\n");
 	/* print the set of items in the room */
 	PrintRoomItems(room->itemList);
 
@@ -246,7 +250,7 @@ void PrintRoomExits(RoomExit* roomExitList)
 /* Helper: Print the list of characters in a room */
 void PrintRoomCharacters(CharacterList* characterList)
 {
-	printf("In this room, you see: ");
+	printf("In this room, you see: \n");
 	CharacterList_Print(characterList);
 	printf(".\n");
 }
