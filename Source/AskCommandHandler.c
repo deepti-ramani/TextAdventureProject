@@ -11,7 +11,7 @@
 /* Handles the ask command */
 void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* worldData)
 {
-	Character* character;
+	Character* character = NULL;
 	CharacterList** characterList;
 	Room* room;
 
@@ -26,7 +26,7 @@ void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* wor
 	{
 		return;
 	}
-	else if (CharacterList_GetCount(characterList) > 1)
+	else if (CharacterList_GetCount(*characterList) > 1)
 	{
 		if (command->noun == NULL)
 		{
@@ -40,7 +40,7 @@ void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* wor
 	}
 	else if (CharacterList_GetCount(*characterList) == 1)
 	{
-		character = (*characterList)->character;
+		character = CharacterList_GetCurrent(*characterList);
 	}
 
 
