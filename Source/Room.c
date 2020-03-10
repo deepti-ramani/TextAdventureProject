@@ -192,9 +192,7 @@ void Room_Print(Room* room)
 
 	/* print the room description */
 	printf(room->description);
-	printf("\n");
 	printf(room->roomdialog);
-	printf("\n");
 	/* print the set of items in the room */
 	PrintRoomItems(room->itemList);
 
