@@ -232,7 +232,7 @@ void PrintRoomExits(RoomExit* roomExitList)
 /* Helper: Print the list of characters in a room */
 void PrintRoomCharacters(CharacterList* characterList)
 {
-	printf("In this room, you see: ");
+	printf("In this room, you see: \n");
 	CharacterList_Print(characterList);
 	printf(".\n");
 }
