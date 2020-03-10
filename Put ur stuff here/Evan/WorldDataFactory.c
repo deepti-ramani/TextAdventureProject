@@ -19,15 +19,32 @@ This could be used to create default states as well as loaded state.
 #include "GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
 
+Room* Room0_Build()
+{
+	Room* room = NULL;
+
+	room = Room_Create(" Sir, the ship has successfully made contact with the dominion. Let me know when you want to proceed with the investigation. Feel free to look around until you are ready.\n");
+
+	Room_AddRoomExit(room, "east", 1);
+
+	Room_PrintExitDesc(room, "You activate your ship’s boarding program, the door unlocks and you step out.");
+
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+
+	return room;
+}
+
 Room* Room1_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #1.\n");
+	room = Room_Create("you see a lever and an airlock of the ship Dominion in the east, to the west is your ship\n");
 
-	Room_AddRoomExit(room, "Direction", 2);
+	Room_AddRoomExit(room, "west", 0);
+	Room_AddRoomExit(room, "east", 2);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "You exit the Dominion and reboard your ship");
+	Room_PrintExitDesc(room, "Pulling the lever, the airlock decompresses and opens. You walk into the next room.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
