@@ -31,7 +31,7 @@ typedef struct Room
 
 
 /* Helper: Print the list of items in a room */
-void PrintRoomItems(ItemList *itemList);
+void PrintRoomItems(ItemList* itemList);
 
 /* Helper: Print the list of exits from a room */
 void PrintRoomExits(RoomExit* roomExitList);
@@ -40,8 +40,8 @@ void PrintRoomExits(RoomExit* roomExitList);
 /* Create an Room object with the provided data */
 Room* Room_Create(const char* description)
 {
-	Room *room; /* the new room object */
-	
+	Room* room; /* the new room object */
+
 	/* allocate the memory for the new object */
 	room = (Room*)malloc(sizeof(Room));
 	if (room == NULL)
@@ -56,7 +56,6 @@ Room* Room_Create(const char* description)
 	room->itemList = NULL;
 	room->characterList = NULL;
 	room->roomExitHead = NULL;
-	
 	/* return the new Room object */
 	return room;
 }
@@ -66,7 +65,7 @@ Room* Room_Create(const char* description)
 void Room_Free(Room** roomPtr)
 {
 	/* safety check on the parameters */
-	if ((roomPtr == NULL) || (*roomPtr == NULL)) 
+	if ((roomPtr == NULL) || (*roomPtr == NULL))
 	{
 		return; /* take no action if the parameters are invalid */
 	}
@@ -104,10 +103,10 @@ CharacterList** Room_GetCharacterList(Room* room)
 
 
 /* Get the room index in the direction specified from the given room */
-bool Room_GetNextRoomIndex(Room *room, const char* direction, int* outNextRoomIndex)
+bool Room_GetNextRoomIndex(Room* room, const char* direction, int* outNextRoomIndex)
 {
 	/* safety check on the parameters */
-	if (room == NULL) 
+	if (room == NULL)
 	{
 		return false; /* return false if the parameters are invalid, since we can't perform the search */
 	}
@@ -158,22 +157,20 @@ void Room_SetDescription(Room* room, const char* description)
 }
 
 
-void Room_PrintExitDesc(Room* room, const char* exitdesc)
+void Room_PrintExitDesc(Room* room, const char* doordesc)
 {
-	/* safety check on the parameters */
-	if ((room == NULL) || (exitdesc == NULL))
+	if ((room == NULL) || (doordesc == NULL))
 	{
 		return; /* take no action if the parameters are invalid */
 	}
-
-	/* copy the parameter data into the given object */
-	strcpy_s(room->exitdesc, MAX_ROOM_DESCRIPTION_LENGTH, exitdesc);
+	/* copy the data from the parameters to the new object */
+	strcpy_s(room->exitdesc, MAX_ROOM_DESCRIPTION_LENGTH, doordesc);
+	/* return the new Room object */
 }
 
 
-
 /* Print the description of the given room to standard output */
-void Room_Print(Room *room)
+void Room_Print(Room* room)
 {
 	/* safety check on the parameters */
 	if (room == NULL)
@@ -189,11 +186,13 @@ void Room_Print(Room *room)
 
 	/* print the set of exits in the given room */
 	PrintRoomExits(room->roomExitHead);
+
+	printf(room->exitdesc);
 }
 
 
 /* Helper: Print the list of items in a room */
-void PrintRoomItems(ItemList *itemList)
+void PrintRoomItems(ItemList* itemList)
 {
 	/* safety check on the parameters */
 	if (itemList == NULL)
@@ -235,10 +234,4 @@ void PrintRoomCharacters(CharacterList* characterList)
 	printf("In this room, you see: \n");
 	CharacterList_Print(characterList);
 	printf(".\n");
-}
-
-void PrintExitDesc(const char* exitdesc)
-{
-	printf(exitdesc);
-	printf("\n");
 }
