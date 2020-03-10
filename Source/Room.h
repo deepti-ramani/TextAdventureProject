@@ -42,7 +42,12 @@ void Room_AddRoomExitShortcut(Room* room, const char* direction, int nextRoomInd
 /* Replace the description on the given room */
 void Room_SetDescription(Room* room, const char* description);
 
+/* add a special description for listening */
+void Room_SetListenDescription(Room* room, const char* listenDescription);
+
 /* Print the description of the given room to standard output */
 void Room_Print(Room *room);
 
 void Room_PrintExitDesc(Room* room, const char* exitdesc);
+
+void Room_PrintDialog(Room* room, const char* roomdialog);

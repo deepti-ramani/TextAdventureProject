@@ -22,11 +22,13 @@ This file defines the Room interface, which is used to manage rooms in the game.
 /* A room in the game */
 typedef struct Room
 {
+	char roomdialog[MAX_ROOM_DESCRIPTION_LENGTH];
 	char exitdesc[MAX_ROOM_DESCRIPTION_LENGTH];
 	char description[MAX_ROOM_DESCRIPTION_LENGTH]; /* The description of the room */
 	ItemList* itemList; /* A list of items in the room */
 	RoomExit* roomExitHead; /* A list of exits from the room */
 	CharacterList* characterList;
+	const char* listenDescription;	/* can't get this from "look", only from "listen" */
 } Room;
 
 
@@ -101,7 +103,6 @@ CharacterList** Room_GetCharacterList(Room* room)
 	return NULL;
 }
 
-
 /* Get the room index in the direction specified from the given room */
 bool Room_GetNextRoomIndex(Room* room, const char* direction, int* outNextRoomIndex)
 {
@@ -156,6 +157,12 @@ void Room_SetDescription(Room* room, const char* description)
 	strcpy_s(room->description, MAX_ROOM_DESCRIPTION_LENGTH, description);
 }
 
+/* add a listen description */
+void Room_SetListenDescription(Room* room, const char* listenDescription)
+{
+	room->listenDescription = listenDescription;
+}
+
 
 void Room_PrintExitDesc(Room* room, const char* doordesc)
 {
@@ -165,6 +172,17 @@ void Room_PrintExitDesc(Room* room, const char* doordesc)
 	}
 	/* copy the data from the parameters to the new object */
 	strcpy_s(room->exitdesc, MAX_ROOM_DESCRIPTION_LENGTH, doordesc);
+	/* return the new Room object */
+}
+
+void Room_PrintDialog(Room* room, const char* dialog)
+{
+	if ((room == NULL) || (dialog == NULL))
+	{
+		return; /* take no action if the parameters are invalid */
+	}
+	/* copy the data from the parameters to the new object */
+	strcpy_s(room->roomdialog, MAX_ROOM_DESCRIPTION_LENGTH, dialog);
 	/* return the new Room object */
 }
 
@@ -180,7 +198,7 @@ void Room_Print(Room* room)
 
 	/* print the room description */
 	printf(room->description);
-
+	printf(room->roomdialog);
 	/* print the set of items in the room */
 	PrintRoomItems(room->itemList);
 
@@ -188,6 +206,7 @@ void Room_Print(Room* room)
 	PrintRoomExits(room->roomExitHead);
 
 	printf(room->exitdesc);
+	printf("\n");
 }
 
 
@@ -231,7 +250,7 @@ void PrintRoomExits(RoomExit* roomExitList)
 /* Helper: Print the list of characters in a room */
 void PrintRoomCharacters(CharacterList* characterList)
 {
-	printf("In this room, you see: ");
+	printf("In this room, you see: \n");
 	CharacterList_Print(characterList);
 	printf(".\n");
 }
