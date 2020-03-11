@@ -124,7 +124,7 @@ Room* Room7_Build()
 
 	Room_PrintExitDesc(room, "There is a keycard reader at the elevator.\n");
 
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), Keycard_Build());
 
 	return room;
 }
@@ -139,8 +139,8 @@ Room* Room8_Build()
 	Room_AddRoomExit(room, "west", 4);
 
 	CharacterList_AddCharacter(Room_GetCharacterList(room), Character_Create("Dan", "Hi, my name is Dan!", "I've been in here for a while.", "Try plugging a USB into the terminal.", true);
-	ItemList_AddItem(Room_GetItemList(room), Brick_Build());
-	
+	ItemList_AddItem(Room_GetItemList(room), Terminal_Build());
+
 	return room;
 }
 
