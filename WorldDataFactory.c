@@ -14,18 +14,21 @@ This could be used to create default states as well as loaded state.
 #include "WorldDataFactory.h" /* Function declarations */
 #include "WorldData.h" /* WorldData_Create, WorldData_SetRoom */
 #include "Room.h" /* Room_Create, Room_AddRoomExit, Room_GetItemList */
+#include "Character.h"
 #include "ItemList.h" /* ItemList_Add */
+#include "CharacterList.h"
 #include "BrickFunctions.h" /* Brick_Build */
 #include "GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
 
+
 Room* Room0_Build()
 {
 	Room* room = NULL;
-
 	room = Room_Create("Sir, the ship has successfully made contact with the dominion. Let me know when you want to proceed with the investigation. Feel free to look around until you are ready.\n");
 
-	Room_PrintDialog(room, "");
+
+	Room_PrintDialog(room, "\nMessage: Sir, the ship has successfully made contact with the dominion. Let me know when you want to proceed with the investigation. Feel free to look around until you are ready.\n\n");
 
 	Room_AddRoomExit(room, "east", 1);
 
@@ -95,7 +98,7 @@ Room* Room4_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #4 Description.\n");
+	room = Room_Create("The Room seems to have taken some damage during the attack. The Door to the South was caught in an explosion and could collapse at any moment. There's a Terminal.\n");
 
 	Room_PrintDialog(room, "");
 
@@ -104,7 +107,7 @@ Room* Room4_Build()
 	Room_AddRoomExit(room, "south", 5);
 	Room_AddRoomExit(room, "west", 2);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "The doors to the north and east are both locked. The west and south doors are unlocked.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 

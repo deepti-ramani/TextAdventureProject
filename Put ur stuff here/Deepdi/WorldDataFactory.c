@@ -14,7 +14,10 @@ This could be used to create default states as well as loaded state.
 #include "WorldDataFactory.h" /* Function declarations */
 #include "WorldData.h" /* WorldData_Create, WorldData_SetRoom */
 #include "Room.h" /* Room_Create, Room_AddRoomExit, Room_GetItemList */
+#include "CharacterList.h"
+#include "Character.h"
 #include "ItemList.h" /* ItemList_Add */
+#include "Item.h"
 #include "BrickFunctions.h" /* Brick_Build */
 #include "GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
@@ -113,13 +116,15 @@ Room* Room7_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #7.\n");
+	room = Room_Create("There is an elevator to the east.\n");
 
-	Room_AddRoomExit(room, "Direction", 8);
+	Room_AddRoomExit(room, "south", 4);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_AddRoomExit(room, "east", 13);
 
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	Room_PrintExitDesc(room, "There is a keycard reader at the elevator.\n");
+
+	ItemList_AddItem(Room_GetItemList(room), Keycard_Build());
 
 	return room;
 }
@@ -128,13 +133,13 @@ Room* Room8_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #8.\n");
+	room = Room_Create("You see a terminal in this room. It doesn't look like much, but perhaps you can activate it.\n");
 
-	Room_AddRoomExit(room, "Direction", 9);
+	Room_AddRoomExit(room, "east", 9);
+	Room_AddRoomExit(room, "west", 4);
 
-	Room_PrintExitDesc(room, "Description of the Door");
-
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	CharacterList_AddCharacter(Room_GetCharacterList(room), Character_Create("Dan", "Hi, my name is Dan!", "I've been in here for a while.", "Try plugging a USB into the terminal.", true);
+	ItemList_AddItem(Room_GetItemList(room), Terminal_Build());
 
 	return room;
 }

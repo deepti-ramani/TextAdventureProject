@@ -53,7 +53,7 @@ CommandList* CreateCommandList()
 	/* TODO REQUIRED: create the "use" command
 	TODO BASIC: add a short alias "u" */
 	CommandList_Add(cmdListPtr, "use", HandleUseCommand, true);
-	CommandList_Add(cmdListPtr, "d", HandleUseCommand, true);
+	CommandList_Add(cmdListPtr, "u", HandleUseCommand, true);
 
 	/* TODO REQUIRED: create the "look" command
 	TODO BASIC: add a short alias "l" */
@@ -78,6 +78,9 @@ CommandList* CreateCommandList()
 
 	CommandList_Add(cmdListPtr, "listen", HandleListenCommand, true);
 	CommandList_Add(cmdListPtr, "n", HandleListenCommand, true);
+
+	CommandList_Add(cmdListPtr, "peek", HandlePeekCommand, true);
+	CommandList_Add(cmdListPtr, "p", HandlePeekCommand, true);
 	/* return the newly created command list */
 	return commandList;
 }

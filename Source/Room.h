@@ -42,6 +42,10 @@ void Room_AddRoomExitShortcut(Room* room, const char* direction, int nextRoomInd
 /* Replace the description on the given room */
 void Room_SetDescription(Room* room, const char* description);
 
+void Room_SetPeekDescription(Room* room, const char* peekDescription);
+
+const char* Room_GetPeekDescription(Room* room);
+
 /* add a special description for listening */
 void Room_SetListenDescription(Room* room, const char* listenDescription);
 
