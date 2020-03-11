@@ -1,7 +1,7 @@
 /******************************************************************************
 filename    WorldDataFactory.c
-author      Justin Chambers
-DP email    justin.chambers@digipen.edu
+author      Evening Class
+DP email    @digipen,edu
 course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
@@ -25,14 +25,14 @@ This could be used to create default states as well as loaded state.
 Room* Room0_Build()
 {
 	Room* room = NULL;
+	room = Room_Create("Sir, the ship has successfully made contact with the dominion. Let me know when you want to proceed with the investigation. Feel free to look around until you are ready.\n");
 
-	room = Room_Create("There is Monitor with a Message.\n");
 
 	Room_PrintDialog(room, "\nMessage: Sir, the ship has successfully made contact with the dominion. Let me know when you want to proceed with the investigation. Feel free to look around until you are ready.\n\n");
 
 	Room_AddRoomExit(room, "east", 1);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "The exit is an air-tight channel.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -50,7 +50,7 @@ Room* Room1_Build()
 	Room_AddRoomExit(room, "west", 0);
 	Room_AddRoomExit(room, "east", 2);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "The West exit takes you to your shuttle. The East exit will take you to the main floor of The Dominion. ");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -102,7 +102,7 @@ Room* Room4_Build()
 
 	Room_PrintDialog(room, "");
 
-	Room_AddRoomExit(room, "north", 7);
+	Room_AddRoomExit(room, "North", 7);
 	Room_AddRoomExit(room, "east", 8);
 	Room_AddRoomExit(room, "south", 5);
 	Room_AddRoomExit(room, "west", 2);
@@ -159,7 +159,7 @@ Room* Room7_Build()
 	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "south", 4);
-	Room_AddRoomExit(room, "down", 13);
+	Room_AddRoomExit(room, "down (Elevator)", 13);
 
 	Room_PrintExitDesc(room, "Description of the Door");
 
@@ -358,7 +358,7 @@ WorldData* CreateInitialWorldData()
 	int roomCount = 18;
 
 	/* create the new WorldData object with 3 rooms */
-	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);
+	worldData = WorldData_Create("You are an agent that has been dispatched from the Global Space. \n Several days ago, scientists picked up a distress signal from within deep space, originating from a ship that went off the radar a week ago. \nYou have been sent out in your own shuttle to investigate the location of the ship and rescue any survivors on board.\n Launching in 5...4...3...2...1...\n ... \n ... \n ... \n Hours later, you have connected your shuttle to the lost stranded ship, The Dominion.", roomCount);
 
 	/* build each room and assign them to the world data */
 	/* TODO REQUIRED: add rooms 1 and 2 to the world data */
