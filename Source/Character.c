@@ -1,4 +1,10 @@
-#pragma once
+/*
+Filename: Character.c
+Author: Deepti Ramani
+Last Edited: 3/11/2020
+Brief: This file contains functions for creating/using characters
+ */
+
 #include "Character.h"
 
 #define MAX_CHARACTER_NAME_LENGTH 16
@@ -20,6 +26,7 @@ typedef struct Character
 	int conversationCounter;
 } Character;
 
+/* create a character */
 Character* Character_Create(const char* name, const char* description, const char* openingDialogue, const char* regularDialogue, const char* hiddenDialogue, bool hiddenDialogueUnlocked)
 {
 	Character* character;
@@ -58,6 +65,7 @@ Character* Character_Create(const char* name, const char* description, const cha
 	return character;
 }
 
+/* return their name */
 const char* Character_GetName(Character* character)
 {
 	if (character != NULL)
@@ -67,6 +75,7 @@ const char* Character_GetName(Character* character)
 	return NULL;
 }
 
+/* return their description */
 const char* Character_GetDescription(Character* character)
 {
 	if (character != NULL)
@@ -76,6 +85,7 @@ const char* Character_GetDescription(Character* character)
 	return NULL;
 }
 
+/* return their opening dialogue */
 const char* Character_GetOpeningDialogue(Character* character)
 {
 	if (character != NULL)
@@ -85,6 +95,7 @@ const char* Character_GetOpeningDialogue(Character* character)
 	return NULL;
 }
 
+/* return their normal dialogue */
 const char* Character_GetRegularDialogue(Character* character)
 {
 	if (character != NULL)
@@ -94,15 +105,17 @@ const char* Character_GetRegularDialogue(Character* character)
 	return NULL;
 }
 
+/* return the character's hidden dialogue */
 const char* Character_GetHiddenDialogue(Character* character)
 {
-	if (character != NULL)
+	if (character != NULL && character->conversationCounter > MIN_CONVERSATIONS_TO_UNLOCK)
 	{
 		return character->hiddenDialogue;
 	}
 	return NULL;
 }
 
+/* get how many times we've spoken to a character */
 int Character_GetConversationCount(Character* character)
 {
 	if (character != NULL)
@@ -112,20 +125,8 @@ int Character_GetConversationCount(Character* character)
 	return 0;
 }
 
+/* increment this when we talk to a character */
 void Character_UpdateConversationCount(Character* character)
 {
 	character->conversationCounter++;
-}
-
-void Character_Print(Character* character)
-{
-	if (character == NULL)
-	{
-		return;
-	}
-	if (character->description != NULL)
-	{
-		printf("%s.\n", character->description);
-		return;
-	}
 }
