@@ -43,7 +43,7 @@ Room* Room1_Build()
 
 	room = Room_Create("Room #1 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 0);
 	Room_AddRoomExit(room, "east", 2);
@@ -61,7 +61,7 @@ Room* Room2_Build()
 
 	room = Room_Create("Room #2 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 3);
 	Room_AddRoomExit(room, "east", 4);
@@ -81,7 +81,7 @@ Room* Room3_Build()
 
 	room = Room_Create("Room #3 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "south", 2);
 
@@ -98,7 +98,7 @@ Room* Room4_Build()
 
 	room = Room_Create("The Room seems to have taken some damage during the attack. The Door to the South was caught in an explosion and could collapse at any moment. There's a Terminal.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 7);
 	Room_AddRoomExit(room, "east", 8);
@@ -118,7 +118,7 @@ Room* Room5_Build()
 
 	room = Room_Create("Room #5 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 4);
 	Room_AddRoomExit(room, "east", 6);
@@ -136,7 +136,7 @@ Room* Room6_Build()
 
 	room = Room_Create("Room #6 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 2);
 	Room_AddRoomExit(room, "east", 5);
@@ -154,7 +154,7 @@ Room* Room7_Build()
 
 	room = Room_Create("Room #7 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "south", 4);
 	Room_AddRoomExit(room, "down", 13);
@@ -172,7 +172,7 @@ Room* Room8_Build()
 
 	room = Room_Create("A Dimly Lit Room with the Lights Flickering Repeatedly. In the Room's Corner, there is a Humanoid Figure Sitting Down.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 4);
 	Room_AddRoomExit(room, "east", 9);
@@ -190,7 +190,7 @@ Room* Room9_Build()
 
 	room = Room_Create("There is an Elevator at the End of the Room.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 8);
 	Room_AddRoomExit(room, "up", 14);
@@ -209,7 +209,7 @@ Room* Room10_Build()
 
 	room = Room_Create("Room #10 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 11);
 	Room_AddRoomExit(room, "up", 9);
@@ -227,7 +227,7 @@ Room* Room11_Build()
 
 	room = Room_Create("Room #11 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 12);
 	Room_AddRoomExit(room, "east", 10);
@@ -245,7 +245,7 @@ Room* Room12_Build()
 
 	room = Room_Create("Room #12 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 13);
 	Room_AddRoomExit(room, "east", 11);
@@ -263,7 +263,7 @@ Room* Room13_Build()
 
 	room = Room_Create("Room #13 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "up", 7);
 	Room_AddRoomExit(room, "south", 12);
@@ -281,7 +281,7 @@ Room* Room14_Build()
 
 	room = Room_Create("Room #14 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 15);
 	Room_AddRoomExit(room, "down", 9);
@@ -299,7 +299,7 @@ Room* Room15_Build()
 
 	room = Room_Create("Room #15 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 16);
 	Room_AddRoomExit(room, "east", 14);
@@ -318,7 +318,7 @@ Room* Room16_Build()
 
 	room = Room_Create("Room #16 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "east", 15);
 
@@ -335,7 +335,7 @@ Room* Room17_Build()
 
 	room = Room_Create("Room #17 Description.\n");
 
-	Room_PrintDialog(room, "Enter Dialog\n");
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 16);
 
