@@ -14,16 +14,21 @@ This could be used to create default states as well as loaded state.
 #include "WorldDataFactory.h" /* Function declarations */
 #include "WorldData.h" /* WorldData_Create, WorldData_SetRoom */
 #include "Room.h" /* Room_Create, Room_AddRoomExit, Room_GetItemList */
+#include "Character.h"
 #include "ItemList.h" /* ItemList_Add */
+#include "CharacterList.h"
 #include "BrickFunctions.h" /* Brick_Build */
 #include "GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
+
 
 Room* Room0_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #0.\n");
+	room = Room_Create("There is Monitor with a Message.\n");
+
+	Room_PrintDialog(room, "\nMessage: Sir, the ship has successfully made contact with the dominion. Let me know when you want to proceed with the investigation. Feel free to look around until you are ready.\n\n");
 
 	Room_AddRoomExit(room, "east", 1);
 
@@ -38,7 +43,9 @@ Room* Room1_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #1.\n");
+	room = Room_Create("Room #1 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 0);
 	Room_AddRoomExit(room, "east", 2);
@@ -54,7 +61,9 @@ Room* Room2_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #2.\n");
+	room = Room_Create("Room #2 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 3);
 	Room_AddRoomExit(room, "east", 4);
@@ -72,7 +81,9 @@ Room* Room3_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #3.\n");
+	room = Room_Create("Room #3 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "south", 2);
 
@@ -87,14 +98,16 @@ Room* Room4_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #4.\n");
+	room = Room_Create("The Room seems to have taken some damage during the attack. The Door to the South was caught in an explosion and could collapse at any moment. There's a Terminal.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 7);
 	Room_AddRoomExit(room, "east", 8);
 	Room_AddRoomExit(room, "south", 5);
 	Room_AddRoomExit(room, "west", 2);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "The doors to the north and east are both locked. The west and south doors are unlocked.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -105,7 +118,9 @@ Room* Room5_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #5.\n");
+	room = Room_Create("Room #5 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 4);
 	Room_AddRoomExit(room, "east", 6);
@@ -121,7 +136,9 @@ Room* Room6_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #6.\n");
+	room = Room_Create("Room #6 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 2);
 	Room_AddRoomExit(room, "east", 5);
@@ -137,7 +154,9 @@ Room* Room7_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #7.\n");
+	room = Room_Create("Room #7 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "south", 4);
 	Room_AddRoomExit(room, "down", 13);
@@ -151,43 +170,35 @@ Room* Room7_Build()
 
 Room* Room8_Build()
 {
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
 	room = Room_Create("A Dimly Lit Room with the Lights Flickering Repeatedly. In the Room's Corner, there is a Humanoid Figure Sitting Down.\n");
-	/*Exit Description*/
-	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
+
+	Room_PrintDialog(room, "");
+
 	Room_AddRoomExit(room, "west", 4);
 	Room_AddRoomExit(room, "east", 9);
 	Room_PrintExitDesc(room, "There is a Keycard Reader at the Door.");
-	/* TODO BASIC: Add room exit shortcut for "n" */
-	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-	/* TODO ADVANCED: (not required) update the description and add a room exit to the "east" */
 
-	/* return the new room */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+
 	return room;
 }
 
 Room* Room9_Build()
 {
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+
 	Room* room = NULL;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
 	room = Room_Create("There is an Elevator at the End of the Room.\n");
-	/*Exit Description*/
-	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
+
+	Room_PrintDialog(room, "");
+
 	Room_AddRoomExit(room, "west", 8);
 	Room_AddRoomExit(room, "up", 14);
 	Room_AddRoomExit(room, "down", 10);
 	
 	Room_PrintExitDesc(room, "There is a Keycard Reader at the Elevator.");
-	/* TODO BASIC: Add room exit shortcut for "n" */
-	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -198,7 +209,9 @@ Room* Room10_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #10.\n");
+	room = Room_Create("Room #10 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 11);
 	Room_AddRoomExit(room, "up", 9);
@@ -214,7 +227,9 @@ Room* Room11_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #11.\n");
+	room = Room_Create("Room #11 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 12);
 	Room_AddRoomExit(room, "east", 10);
@@ -230,7 +245,9 @@ Room* Room12_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #12.\n");
+	room = Room_Create("Room #12 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 13);
 	Room_AddRoomExit(room, "east", 11);
@@ -246,7 +263,9 @@ Room* Room13_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #13.\n");
+	room = Room_Create("Room #13 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "up", 7);
 	Room_AddRoomExit(room, "south", 12);
@@ -262,7 +281,9 @@ Room* Room14_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #14.\n");
+	room = Room_Create("Room #14 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 15);
 	Room_AddRoomExit(room, "down", 9);
@@ -278,7 +299,9 @@ Room* Room15_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #15.\n");
+	room = Room_Create("Room #15 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 16);
 	Room_AddRoomExit(room, "east", 14);
@@ -295,7 +318,9 @@ Room* Room16_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #16.\n");
+	room = Room_Create("Room #16 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "east", 15);
 
@@ -310,7 +335,9 @@ Room* Room17_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #17.\n");
+	room = Room_Create("Room #17 Description.\n");
+
+	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "north", 16);
 

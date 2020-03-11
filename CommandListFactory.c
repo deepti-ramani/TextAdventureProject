@@ -53,7 +53,7 @@ CommandList* CreateCommandList()
 	/* TODO REQUIRED: create the "use" command
 	TODO BASIC: add a short alias "u" */
 	CommandList_Add(cmdListPtr, "use", HandleUseCommand, true);
-	CommandList_Add(cmdListPtr, "d", HandleUseCommand, true);
+	CommandList_Add(cmdListPtr, "u", HandleUseCommand, true);
 
 	/* TODO REQUIRED: create the "look" command
 	TODO BASIC: add a short alias "l" */
@@ -73,7 +73,14 @@ CommandList* CreateCommandList()
 	/* TODO ADVANCED: create 3 aditional commands -
 	this should require the creation of additional .c files to implement the command functions */
 	/* ask a character in the game for information */
+	CommandList_Add(cmdListPtr, "ask", HandleAskCommand, true);
+	CommandList_Add(cmdListPtr, "a", HandleAskCommand, true);
 
+	CommandList_Add(cmdListPtr, "listen", HandleListenCommand, true);
+	CommandList_Add(cmdListPtr, "n", HandleListenCommand, true);
+
+	CommandList_Add(cmdListPtr, "peek", HandlePeekCommand, true);
+	CommandList_Add(cmdListPtr, "p", HandlePeekCommand, true);
 	/* return the newly created command list */
 	return commandList;
 }

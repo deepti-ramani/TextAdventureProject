@@ -78,6 +78,15 @@ CharacterList* CharacterList_Remove(CharacterList* characterList, Character* cha
 	return result;
 }
 
+Character* CharacterList_GetCurrent(CharacterList* characterList)
+{
+	if (characterList->character != NULL)
+	{
+		return characterList->character;
+	}
+	return NULL;
+}
+
 Character* CharacterList_Find(CharacterList* characterList, const char* characterName)
 {
 	if (characterList == NULL || characterName == NULL)
@@ -108,16 +117,9 @@ void CharacterList_Print(CharacterList* characterList)
 		characterDescription = Character_GetDescription(printedList->character);
 		if (characterDescription != NULL)
 		{
-			/* if we've spoken to them before, print their name */
-			if (Character_GetConversationCount(printedList->character) > 0)
-			{
-				printf("%s, %s", characterName, characterDescription);
-			}
-			else
-			{
-				printf("%s", characterDescription);
-			}
-
+			printf("%s, %s", characterName, characterDescription);		
+			
+			/* print punctuation */
 			if (listIndex > 0 && listIndex < count - 1)
 			{
 				/* print a comma for 3 and more characters */
@@ -131,6 +133,7 @@ void CharacterList_Print(CharacterList* characterList)
 					printf(" and \n");
 				}
 			}
+
 			/* print an and between the last and second-to-last characters */
 			else if (listIndex == count - 1)
 			{
