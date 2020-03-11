@@ -14,7 +14,6 @@ This file defines the functions to create a specific item, the "AllAccessKeyCard
 #include "Room.h" /* Room_GetItemList, Room_SetDescription */
 #include "ItemList.h" /* ItemList_FindItem, ItemList_Remove, ItemList_Add */
 #include "Item.h" /* Item_Create */
-#include "EggFunctions.h" /* Egg_Build */
 
 
 /* Helper: The action performed when the AllAccessKeyCard is taken. */
@@ -51,16 +50,9 @@ void AllAccessKeyCard_Use(CommandContext context, GameState* gameState, WorldDat
 		return;
 	}
 
-	/* check if we're in the right room to use the item */
-	if (gameState->currentRoomIndex != 0)
-	{
-		/* we are not in the right room - inform the user of the problem and take no action */
-		printf("You cannot use the All Access Key Card here.\n");
-		return;
-	}
 
 	/* check if the cage has already been broken and scored */
-	if (GameFlags_IsInList(gameState->gameFlags, "cageBrokenScored"))
+	if (GameFlags_IsInList(gameState->gameFlags, "usedAllAccessKeyCard"))
 	{
 		/* the player already used the AllAccessKeyCard - inform the user of the problem and take no action */
 		printf("You already used the All Access Key Card here.\n");
@@ -91,13 +83,13 @@ void AllAccessKeyCard_Use(CommandContext context, GameState* gameState, WorldDat
 		GameState_ChangeScore(gameState, 10);
 
 		/* Update the room description to reflect the change in the room */
-		Room_SetDescription(room, "This is room 0.  You are in a display room.  There is a broken cage here.\n");
+		/*Room_SetDescription(room, "This is room 0.  You are in a display room.  There is a broken cage here.\n");*/
 
 		/* Add an egg to the current room, since the cage has been bashed open */
-		*roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());
+		/**roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());*/
 
 		/* the gold piece has not been scored, so mark the flag */
-		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "cageBrokenScored");
+		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "UsedAllAccessKeyCard");
 	}
 }
 
@@ -106,5 +98,5 @@ void AllAccessKeyCard_Use(CommandContext context, GameState* gameState, WorldDat
 Item* AllAccessKey_Build()
 {
 	/* Create a "AllAccessKeyCard" item, using the functions defined in this file */
-	return Item_Create("AllAccessKeyCard", "An All access key card that can be used to open any door.", true, AllAccessKeyCard_Use, AllAccessKeyCard_Take, NULL);
+	return Item_Create("AllAccessKeyCard", "A Key Card that can be used to open any door.", true, AllAccessKeyCard_Use, AllAccessKeyCard_Take, NULL);
 }
