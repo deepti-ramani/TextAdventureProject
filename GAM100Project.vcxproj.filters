@@ -82,6 +82,12 @@
     <ClCompile Include="Source\CharacterList.c">
       <Filter>World Data</Filter>
     </ClCompile>
+    <ClCompile Include="Source\AskCommandHandler.c">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ListenCommandHandler.c">
+      <Filter>Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CommandContext.h">
@@ -182,6 +188,12 @@
     </ClInclude>
     <ClInclude Include="Source\Character.h">
       <Filter>World Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AskCommandHandler.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ListenCommandHandler.h">
+      <Filter>Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

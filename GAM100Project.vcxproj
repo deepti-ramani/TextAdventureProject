@@ -84,6 +84,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\AskCommandHandler.h" />
     <ClInclude Include="Source\BrickFunctions.h" />
     <ClInclude Include="Source\Character.h" />
     <ClInclude Include="Source\CharacterList.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="Source\InventoryCommandHandler.h" />
     <ClInclude Include="Source\Item.h" />
     <ClInclude Include="Source\ItemList.h" />
+    <ClInclude Include="Source\ListenCommandHandler.h" />
     <ClInclude Include="Source\LookCommandHandler.h" />
     <ClInclude Include="Source\QuitCommandHandler.h" />
     <ClInclude Include="Source\Room.h" />
@@ -121,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="CommandListFactory.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Source\AskCommandHandler.c" />
     <ClCompile Include="Source\BrickFunctions.c" />
     <ClCompile Include="Source\Character.c" />
     <ClCompile Include="Source\CharacterList.c" />
@@ -139,6 +142,7 @@
     <ClCompile Include="Source\InventoryCommandHandler.c" />
     <ClCompile Include="Source\Item.c" />
     <ClCompile Include="Source\ItemList.c" />
+    <ClCompile Include="Source\ListenCommandHandler.c" />
     <ClCompile Include="Source\LookCommandHandler.c" />
     <ClCompile Include="Source\QuitCommandHandler.c" />
     <ClCompile Include="Source\Room.c" />

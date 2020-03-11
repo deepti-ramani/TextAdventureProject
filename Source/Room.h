@@ -45,6 +45,8 @@ void Room_SetDescription(Room* room, const char* description);
 /* add a special description for listening */
 void Room_SetListenDescription(Room* room, const char* listenDescription);
 
+const char* Room_GetListenDescription(Room* room);
+
 /* Print the description of the given room to standard output */
 void Room_Print(Room *room);
 

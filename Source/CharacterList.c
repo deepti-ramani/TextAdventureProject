@@ -78,6 +78,15 @@ CharacterList* CharacterList_Remove(CharacterList* characterList, Character* cha
 	return result;
 }
 
+Character* CharacterList_GetCurrent(CharacterList* characterList)
+{
+	if (characterList->character != NULL)
+	{
+		return characterList->character;
+	}
+	return NULL;
+}
+
 Character* CharacterList_Find(CharacterList* characterList, const char* characterName)
 {
 	if (characterList == NULL || characterName == NULL)

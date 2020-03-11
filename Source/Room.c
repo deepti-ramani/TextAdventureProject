@@ -163,6 +163,14 @@ void Room_SetListenDescription(Room* room, const char* listenDescription)
 	room->listenDescription = listenDescription;
 }
 
+const char* Room_GetListenDescription(Room* room)
+{
+	if (room->listenDescription != NULL)
+	{
+		return room->listenDescription;
+	}
+	return NULL;
+}
 
 void Room_PrintExitDesc(Room* room, const char* doordesc)
 {
