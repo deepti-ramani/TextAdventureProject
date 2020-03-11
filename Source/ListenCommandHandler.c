@@ -18,12 +18,15 @@ void HandleListenCommand(CommandData* command, GameState* gameState, WorldData* 
 
 	room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
 	
-	if(Room_GetListenDescription(room) != NULL)
+	if (room != NULL)
 	{
-		printf("You hear %s.\n", Room_GetListenDescription(room));
-	}
-	else 
-	{
-		printf("You cannot hear anything.\n");
+		if (Room_GetListenDescription(room) != NULL)
+		{
+			printf("You hear %s.\n", Room_GetListenDescription(room));
+		}
+		else
+		{
+			printf("You cannot hear anything.\n");
+		}
 	}
 }

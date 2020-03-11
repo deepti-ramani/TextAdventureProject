@@ -38,6 +38,7 @@ void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* wor
 			character = CharacterList_Find(*characterList, command->noun);
 		}
 	}
+	/* if there's only one character in the room, get that character */
 	else if (CharacterList_GetCount(*characterList) == 1)
 	{
 		character = CharacterList_GetCurrent(*characterList);
@@ -46,8 +47,7 @@ void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* wor
 
 	if (character != NULL)
 	{
-		printf("You approach ");
-		Character_Print(character);
+		printf("You approach %s.\n", Character_GetName(character));
 
 		if (Character_GetConversationCount(character) == 0)
 		{
@@ -63,6 +63,5 @@ void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* wor
 		}
 		return;
 	}
-
 	printf("You do not see %s in the room.\n", command->noun);
 }

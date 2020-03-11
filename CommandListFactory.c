@@ -78,6 +78,9 @@ CommandList* CreateCommandList()
 
 	CommandList_Add(cmdListPtr, "listen", HandleListenCommand, true);
 	CommandList_Add(cmdListPtr, "n", HandleListenCommand, true);
+
+	CommandList_Add(cmdListPtr, "peek", HandlePeekCommand, true);
+	CommandList_Add(cmdListPtr, "p", HandlePeekCommand, true);
 	/* return the newly created command list */
 	return commandList;
 }
