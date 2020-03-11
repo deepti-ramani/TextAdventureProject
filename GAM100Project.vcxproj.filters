@@ -82,6 +82,9 @@
     <ClCompile Include="Source\CharacterList.c">
       <Filter>World Data</Filter>
     </ClCompile>
+    <ClCompile Include="TerminalFunctions.c">
+      <Filter>World Data\Item Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CommandContext.h">
@@ -182,6 +185,9 @@
     </ClInclude>
     <ClInclude Include="Source\Character.h">
       <Filter>World Data</Filter>
+    </ClInclude>
+    <ClInclude Include="TerminalFunctions.h">
+      <Filter>World Data\Item Functions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
