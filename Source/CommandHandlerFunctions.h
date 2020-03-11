@@ -45,3 +45,5 @@ void HandleUseCommand(CommandData* command, GameState *gameState, WorldData *wor
 void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* worldData);
 
 void HandleListenCommand(CommandData* command, GameState* gameState, WorldData* worldData);
+
+void HandlePeekCommand(CommandData* command, GameState* gameState, WorldData* worldData);

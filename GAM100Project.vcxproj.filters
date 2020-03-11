@@ -88,6 +88,9 @@
     <ClCompile Include="Source\ListenCommandHandler.c">
       <Filter>Commands</Filter>
     </ClCompile>
+    <ClCompile Include="Source\PeekCommandHandler.c">
+      <Filter>Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CommandContext.h">
@@ -193,6 +196,9 @@
       <Filter>Commands</Filter>
     </ClInclude>
     <ClInclude Include="Source\ListenCommandHandler.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PeekCommandHandler.h">
       <Filter>Commands</Filter>
     </ClInclude>
   </ItemGroup>

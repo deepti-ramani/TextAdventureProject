@@ -29,6 +29,7 @@ typedef struct Room
 	RoomExit* roomExitHead; /* A list of exits from the room */
 	CharacterList* characterList;
 	const char* listenDescription;	/* can't get this from "look", only from "listen" */
+	const char* peekDescription;
 } Room;
 
 
@@ -58,6 +59,9 @@ Room* Room_Create(const char* description)
 	room->itemList = NULL;
 	room->characterList = NULL;
 	room->roomExitHead = NULL;
+	room->listenDescription = NULL;
+	room->peekDescription = NULL;
+
 	/* return the new Room object */
 	return room;
 }
@@ -157,6 +161,21 @@ void Room_SetDescription(Room* room, const char* description)
 	strcpy_s(room->description, MAX_ROOM_DESCRIPTION_LENGTH, description);
 }
 
+void Room_SetPeekDescription(Room* room, const char* peekDescription)
+{
+	room->peekDescription = peekDescription;
+}
+
+const char* Room_GetPeekDescription(Room* room)
+{
+	if (room != NULL && room->peekDescription != NULL)
+	{
+		printf("DEBUG: The room has a peek description.\n");
+		return room->peekDescription;
+	}
+	return NULL;
+}
+
 /* add a listen description */
 void Room_SetListenDescription(Room* room, const char* listenDescription)
 {
@@ -165,8 +184,9 @@ void Room_SetListenDescription(Room* room, const char* listenDescription)
 
 const char* Room_GetListenDescription(Room* room)
 {
-	if (room->listenDescription != NULL)
+	if (room != NULL && room->listenDescription != NULL)
 	{
+		printf("DEBUG: The room has a listen description.\n");
 		return room->listenDescription;
 	}
 	return NULL;

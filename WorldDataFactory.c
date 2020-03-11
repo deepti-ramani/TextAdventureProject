@@ -14,7 +14,9 @@ This could be used to create default states as well as loaded state.
 #include "WorldDataFactory.h" /* Function declarations */
 #include "WorldData.h" /* WorldData_Create, WorldData_SetRoom */
 #include "Room.h" /* Room_Create, Room_AddRoomExit, Room_GetItemList */
+#include "Character.h"
 #include "ItemList.h" /* ItemList_Add */
+#include "CharacterList.h"
 #include "BrickFunctions.h" /* Brick_Build */
 #include "GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */

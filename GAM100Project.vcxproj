@@ -110,6 +110,7 @@
     <ClInclude Include="Source\ItemList.h" />
     <ClInclude Include="Source\ListenCommandHandler.h" />
     <ClInclude Include="Source\LookCommandHandler.h" />
+    <ClInclude Include="Source\PeekCommandHandler.h" />
     <ClInclude Include="Source\QuitCommandHandler.h" />
     <ClInclude Include="Source\Room.h" />
     <ClInclude Include="Source\RoomExit.h" />
@@ -144,6 +145,7 @@
     <ClCompile Include="Source\ItemList.c" />
     <ClCompile Include="Source\ListenCommandHandler.c" />
     <ClCompile Include="Source\LookCommandHandler.c" />
+    <ClCompile Include="Source\PeekCommandHandler.c" />
     <ClCompile Include="Source\QuitCommandHandler.c" />
     <ClCompile Include="Source\Room.c" />
     <ClCompile Include="Source\RoomExit.c" />
