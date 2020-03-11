@@ -264,7 +264,7 @@ Room* Room14_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #14.\n");
+	room = Room_Create("Entering the room, you look around to see a terminal in the corner. \n");
 
 	Room_AddRoomExit(room, "west", 15);
 	Room_AddRoomExit(room, "down", 9);
@@ -280,7 +280,7 @@ Room* Room15_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #15.\n");
+	room = Room_Create("Walking in, you see a keycard on the ground. It is (dimly lit?)\n");
 
 	Room_AddRoomExit(room, "west", 16);
 	Room_AddRoomExit(room, "east", 14);
