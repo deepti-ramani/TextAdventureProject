@@ -30,9 +30,14 @@ Room* Room0_Build()
 
 	Room_PrintDialog(room, "\nMessage: Sir, the ship has successfully made contact with the dominion. Let me know when you want to proceed with the investigation. Feel free to look around until you are ready.\n\n");
 
-	Room_AddRoomExit(room, "east", 1);
+    Room_AddRoomExit(room, "east", 1);
 
-	Room_PrintExitDesc(room, "The exit is an air-tight channel.");
+    Room_PrintExitDesc(room, "You activate your ship’s boarding program, the door unlocks and you step out into the airlock.");
+
+    ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+
+    return room;
+}
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -43,14 +48,15 @@ Room* Room1_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #1 Description.\n");
+	room = Room_Create("The room is compact and theres small windows. Theres a lever next to an air-tight door to the east. To the west is your ship\n");
 
 	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 0);
 	Room_AddRoomExit(room, "east", 2);
 
-	Room_PrintExitDesc(room, "The West exit takes you to your shuttle. The East exit will take you to the main floor of The Dominion. ");
+	Room_PrintExitDesc(room, "You exit the Dominion and reboard your ship");
+    Room_PrintExitDesc(room, "Pulling the lever, the airlock decompresses and opens. You walk into the next room.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -61,7 +67,7 @@ Room* Room2_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #2 Description.\n");
+	room = Room_Create("The room is mostly white and blank. There are blue lights on the ceiling. Theres a small plug on the ground.\n");
 
 	Room_PrintDialog(room, "");
 
@@ -81,7 +87,7 @@ Room* Room3_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #3 Description.\n");
+	room = Room_Create("You enter a well lit, messy room. There's a woman with a bandage wrapped around her leg. Her face is dirty and her hair is messy. There's some blood on her clothes.\n");
 
 	Room_PrintDialog(room, "");
 
@@ -98,11 +104,11 @@ Room* Room4_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("The Room seems to have taken some damage during the attack. The Door to the South was caught in an explosion and could collapse at any moment. There's a Terminal.\n");
+	room = Room_Create("The Room seems to have taken some damage during the attack. The Door to the South was caught in an explosion and could collapse at any moment. There's a terminal that's still working in the center of the room, and it looks like it's awaiting an input.\n");
 
 	Room_PrintDialog(room, "");
 
-	Room_AddRoomExit(room, "North", 7);
+	Room_AddRoomExit(room, "north", 7);
 	Room_AddRoomExit(room, "east", 8);
 	Room_AddRoomExit(room, "south", 5);
 	Room_AddRoomExit(room, "west", 2);
@@ -118,7 +124,7 @@ Room* Room5_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #5 Description.\n");
+	room = Room_Create("It's almost completely pitch black, but you can just make out the silhouette of a large creature crouched over what looks like a body in the corner of the room.\n");
 
 	Room_PrintDialog(room, "");
 
@@ -136,7 +142,7 @@ Room* Room6_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #6 Description.\n");
+	room = Room_Create("\n");
 
 	Room_PrintDialog(room, "");
 
@@ -154,14 +160,14 @@ Room* Room7_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #7 Description.\n");
+	room = Room_Create("The room is made from dark steel, and there are hanging lights. You see an elevator to the east. The elevator only goes down.\n");
 
 	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "south", 4);
 	Room_AddRoomExit(room, "down (Elevator)", 13);
 
-	Room_PrintExitDesc(room, "Description of the Door");
+	Room_PrintExitDesc(room, "There is a panel to lets you go up or down in the elevator.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -172,13 +178,13 @@ Room* Room8_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("A Dimly Lit Room with the Lights Flickering Repeatedly. In the Room's Corner, there is a Humanoid Figure Sitting Down.\n");
+	room = Room_Create("A dimly lit room with the lights flickering repeatedly. Theres a terminal in the corner. In the room's corner, there is a clanky robot wheeling around.\n");
 
 	Room_PrintDialog(room, "");
 
 	Room_AddRoomExit(room, "west", 4);
 	Room_AddRoomExit(room, "east", 9);
-	Room_PrintExitDesc(room, "There is a Keycard Reader at the Door.");
+	Room_PrintExitDesc(room, "");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
@@ -190,7 +196,7 @@ Room* Room9_Build()
 
 	Room* room = NULL;
 
-	room = Room_Create("There is an Elevator at the End of the Room.\n");
+	room = Room_Create("The rooms is fairly empty, though there is an elevator at the end of the room, it can go up and down.\n");
 
 	Room_PrintDialog(room, "");
 
@@ -209,7 +215,7 @@ Room* Room10_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #10 Description.\n");
+	room = Room_Create("The room is very dark, as the elevator opens a singular light flickers on. You see a large clutter of boxes and cobwebs, looks like a storage room. Something gleams from within the boxes.\n");
 
 	Room_PrintDialog(room, "");
 
@@ -227,7 +233,7 @@ Room* Room11_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #11 Description.\n");
+	room = Room_Create("The room is empty, but there glowing terminal that you can possibly access. You'll need to plug in something.");
 
 	Room_PrintDialog(room, "");
 
@@ -245,7 +251,7 @@ Room* Room12_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #12 Description.\n");
+	room = Room_Create("You see a young man fiddling with panels in the wall and a sling on his arm. He seems very entranced wit his work. \n");
 
 	Room_PrintDialog(room, "");
 
@@ -263,9 +269,10 @@ Room* Room13_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #13 Description.\n");
+	room = Room_Create("The room is incredibly dark. There is no light whatsoever.");
 
-	Room_PrintDialog(room, "");
+	Room_PrintDialog(room, "Which direction would you like to go?");
+	/*You have walked several paces. Which way would you like to go now?*/
 
 	Room_AddRoomExit(room, "up", 7);
 	Room_AddRoomExit(room, "south", 12);
@@ -281,7 +288,7 @@ Room* Room14_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #14 Description.\n");
+	room = Room_Create("The elevators open and you see a lobby room of some kind. There are metal tables flipped over. There's a terminal in the corner.");
 
 	Room_PrintDialog(room, "");
 
@@ -299,7 +306,7 @@ Room* Room15_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #15 Description.\n");
+	room = Room_Create("Theres metal bookshelves mounted to the wall, but all of the books are missing. Theres something gleaming on the floor.");
 
 	Room_PrintDialog(room, "");
 
@@ -318,7 +325,7 @@ Room* Room16_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #16 Description.\n");
+	room = Room_Create("There’s a strange mist in the room that leaks from an unknown source. Empty metal cots line the walls. The light flickers on and off above you. You can occasionally catch a glimpse of an unmoving shape in the corner.\n");
 
 	Room_PrintDialog(room, "");
 
@@ -335,7 +342,7 @@ Room* Room17_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("Room #17 Description.\n");
+	room = Room_Create("There are metal bunk beds leaning against the walls. All the pillows and blankets have been dragged over to a corner and piled up. Something shivers and quakes under the pile.\n\n");
 
 	Room_PrintDialog(room, "");
 

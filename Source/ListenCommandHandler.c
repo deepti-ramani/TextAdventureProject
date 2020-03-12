@@ -1,3 +1,10 @@
+/*
+Filename: ListenCommandHandler.c
+Author: Deepti Ramani
+Last Edited: 3/11/2020
+Brief: This file handles the listen command, which lets the player listen to gain information about the room they're in
+ */
+
 #include "stdafx.h" /* NULL, printf, strnlen_s */
 #include "ListenCommandHandler.h" /* Function declarations */
 #include "CommandData.h" /* struct CommandData */

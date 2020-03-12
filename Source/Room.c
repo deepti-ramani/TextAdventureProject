@@ -170,7 +170,6 @@ const char* Room_GetPeekDescription(Room* room)
 {
 	if (room != NULL && room->peekDescription != NULL)
 	{
-		printf("DEBUG: The room has a peek description.\n");
 		return room->peekDescription;
 	}
 	return NULL;
@@ -182,11 +181,11 @@ void Room_SetListenDescription(Room* room, const char* listenDescription)
 	room->listenDescription = listenDescription;
 }
 
+/* get listen description of the room (if it exists) */
 const char* Room_GetListenDescription(Room* room)
 {
 	if (room != NULL && room->listenDescription != NULL)
 	{
-		printf("DEBUG: The room has a listen description.\n");
 		return room->listenDescription;
 	}
 	return NULL;

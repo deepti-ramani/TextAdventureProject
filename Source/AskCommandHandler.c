@@ -1,3 +1,10 @@
+/*
+Filename: AskCommandHandler.c
+Author: Deepti Ramani
+Last Edited: 3/11/2020
+Brief: This file handles the player's conversations with npcs
+ */
+
 #include "stdafx.h" /* NULL, printf, strnlen_s */
 #include "AskCommandHandler.h" /* Function declarations */
 #include "CommandData.h" /* struct CommandData */
@@ -47,6 +54,7 @@ void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* wor
 
 	if (character != NULL)
 	{
+		Character_UpdateConversationCount(character);
 		printf("You approach %s.\n", Character_GetName(character));
 
 		if (Character_GetConversationCount(character) == 0)
@@ -56,7 +64,7 @@ void HandleAskCommand(CommandData* command, GameState* gameState, WorldData* wor
 		else
 		{
 			printf("%s: %s.\n", Character_GetName(character), Character_GetRegularDialogue(character));
-			if (Character_GetConversationCount(character) >= 3)
+			if (Character_GetHiddenDialogue(character) != NULL)
 			{
 				printf("%s.\n", Character_GetHiddenDialogue(character));
 			}

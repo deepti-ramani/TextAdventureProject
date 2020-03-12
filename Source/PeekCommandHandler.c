@@ -1,3 +1,10 @@
+/*
+Filename: PeekCommandHandler.c
+Author: Deepti Ramani
+Last Edited: 3/11/2020
+Brief: This file handles the player's use of the "peek" command, and gives a description of an adjacent room.
+ */
+
 #include "stdafx.h" /* NULL, printf, strnlen_s */
 #include "PeekCommandHandler.h" /* Function declarations */
 #include "CommandData.h" /* struct CommandData */
