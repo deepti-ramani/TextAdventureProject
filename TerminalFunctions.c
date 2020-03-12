@@ -17,18 +17,6 @@ Brief: This file defines the functions to create a specific item, the "terminal"
 
 #define MAXPASSWORDLENGTH 128
 
-
- /* Helper: The action performed when the SomeItem is taken. */
-void Terminal_Take(CommandContext context, GameState* gameState, WorldData* worldData)
-{
-	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
-	UNREFERENCED_PARAMETER(context);
-	UNREFERENCED_PARAMETER(gameState);
-	UNREFERENCED_PARAMETER(worldData);
-
-	/* Do something when the item is taken including printing out something about it happening. */
-}
-
 /* Helper: The action performed when the SomeItem is used. */
 void Terminal_Use(CommandContext context, GameState* gameState, WorldData* worldData)
 {
@@ -36,37 +24,73 @@ void Terminal_Use(CommandContext context, GameState* gameState, WorldData* world
 
 	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
 	UNREFERENCED_PARAMETER(context);
-	UNREFERENCED_PARAMETER(gameState);
 
 	/* Do something when the item is used including printing out something about it happening. */
 
-	Room* room; /* The current room */
-	room = WorldData_GetRoom(worldData, gameState->currentRoomIndex); /* get the current room */
+	
 
-	puts("Please input the 4 digit access code:\n");
-	fgets(password, MAXPASSWORDLENGTH, stdin);
-	if (strcmp(password, "1416\n"))
+	Room* room; /* The current room */
+	ItemList** roomItemsPtr; /* The list of items in the current room */
+	room = WorldData_GetRoom(worldData, gameState->currentRoomIndex); /* get the current room */
+	roomItemsPtr = Room_GetItemList(room);
+	
+	/* safety check on the parameters */
+	if ((gameState == NULL) || (worldData == NULL))
 	{
-		puts("Access Approved\n");
-		puts("");
+		return; /* take no action if the parameters are invalid */
+	}
+	
+	/* get the list of items in the current room */
+	if (roomItemsPtr == NULL)
+	{
+		return; /* take no action, as something is wrong - we should always have an item list */
 	}
 
+	if (gameState->currentRoomIndex == 4)
+	{
+		puts("Please input the 4 digit access code:\n");
+		fgets(password, MAXPASSWORDLENGTH, stdin);
+		if (strcmp(password, "1416\n"))
+		{
+			puts("Access Approved\n");
+			puts("Deactivating Door Security.");
+			Room_AddRoomExit(room, "north", 7);
+			Room_AddRoomExit(room, "east", 8);
+			Room_SetDescription(room, "All the doors in this room are unlocked now.\n");
+		}
+		else
+		{
+			puts("Incorrect Password\n");
+			puts("Access Denied\n");
+			return;
+		}
+	}
+
+	if (gameState->currentRoomIndex == 8)
+	{
+		puts("Please input the 4 digit access code:\n");
+		fgets(password, MAXPASSWORDLENGTH, stdin);
+		if (strcmp(password, "1416\n"))
+		{
+			puts("Access Approved\n");
+			puts("Deactivating Door Security.");
+			Room_AddRoomExit(room, "east", 9);
+			Room_SetDescription(room, "All the doors in this room are unlocked now.\n");
+		}
+		else
+		{
+			puts("Incorrect Password\n");
+			puts("Access Denied\n");
+			return;
+		}
+	}
+
+
 }
-
-void Terminal_Drop(CommandContext context, GameState* gameState, WorldData* worldData)
-{
-	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
-	UNREFERENCED_PARAMETER(context);
-	UNREFERENCED_PARAMETER(gameState);
-	UNREFERENCED_PARAMETER(worldData);
-
-	/* Do something when the item is dropped including printing out something about it happening. */
-}
-
 
 /* Build a "SomeItem" object */
 Item* Terminal_Build()
 {
 	/* Create a "SomeItem" item, using the functions defined in this file */
-	return Item_Create("SomeItem", "Oh man. That sure is some item.", true, Terminal_Use, Terminal_Take, Terminal_Drop);
+	return Item_Create("terminal", "The Terminal seems to be awaiting an input.", false, Terminal_Use, NULL, NULL);
 }
