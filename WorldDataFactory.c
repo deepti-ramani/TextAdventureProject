@@ -17,6 +17,7 @@ This could be used to create default states as well as loaded state.
 #include "Character.h"
 #include "ItemList.h" /* ItemList_Add */
 #include "CharacterList.h"
+#include "TerminalFunctions.h"
 #include "BrickFunctions.h" /* Brick_Build */
 #include "GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
@@ -32,23 +33,19 @@ Room* Room0_Build()
 
     Room_AddRoomExit(room, "east", 1);
 
-    Room_PrintExitDesc(room, "You activate your ship’s boarding program, the door unlocks and you step out into the airlock.");
+    Room_PrintExitDesc(room, "You activate your ship's boarding program, the door unlocks and you step out into the airlock.");
 
     ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
     return room;
 }
 
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-
-	return room;
-}
 
 Room* Room1_Build()
 {
 	Room* room = NULL;
 
-	room = Room_Create("The room is compact and theres small windows. Theres a lever next to an air-tight door to the east. To the west is your ship\n");
+	room = Room_Create("The room is compact and there are small windows. There's a lever next to an air-tight door to the east. To the west is your ship\n");
 
 	Room_PrintDialog(room, "");
 
@@ -108,14 +105,13 @@ Room* Room4_Build()
 
 	Room_PrintDialog(room, "");
 
-	Room_AddRoomExit(room, "north", 7);
-	Room_AddRoomExit(room, "east", 8);
 	Room_AddRoomExit(room, "south", 5);
 	Room_AddRoomExit(room, "west", 2);
 
 	Room_PrintExitDesc(room, "The doors to the north and east are both locked. The west and south doors are unlocked.");
 
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), Terminal_Build());
 
 	return room;
 }

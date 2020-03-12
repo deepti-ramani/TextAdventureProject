@@ -27,8 +27,6 @@ void Terminal_Use(CommandContext context, GameState* gameState, WorldData* world
 
 	/* Do something when the item is used including printing out something about it happening. */
 
-	
-
 	Room* room; /* The current room */
 	ItemList** roomItemsPtr; /* The list of items in the current room */
 	room = WorldData_GetRoom(worldData, gameState->currentRoomIndex); /* get the current room */
@@ -48,12 +46,11 @@ void Terminal_Use(CommandContext context, GameState* gameState, WorldData* world
 
 	if (gameState->currentRoomIndex == 4)
 	{
-		puts("Please input the 4 digit access code:\n");
+		printf("Please input the 4 digit access code.\n>> ");
 		fgets(password, MAXPASSWORDLENGTH, stdin);
-		if (strcmp(password, "1416\n"))
+		if (strcmp(password, "1416"))
 		{
-			puts("Access Approved\n");
-			puts("Deactivating Door Security.");
+			puts("\nAccess Approved, Deactivating Door Security.");
 			Room_AddRoomExit(room, "north", 7);
 			Room_AddRoomExit(room, "east", 8);
 			Room_SetDescription(room, "All the doors in this room are unlocked now.\n");
@@ -68,12 +65,11 @@ void Terminal_Use(CommandContext context, GameState* gameState, WorldData* world
 
 	if (gameState->currentRoomIndex == 8)
 	{
-		puts("Please input the 4 digit access code:\n");
+		printf("Please input the 4 digit access code.\n>> ");
 		fgets(password, MAXPASSWORDLENGTH, stdin);
-		if (strcmp(password, "1416\n"))
+		if (strcmp(password, "1416"))
 		{
-			puts("Access Approved\n");
-			puts("Deactivating Door Security.");
+			puts("\nAccess Approved, Deactivating Door Security.");
 			Room_AddRoomExit(room, "east", 9);
 			Room_SetDescription(room, "All the doors in this room are unlocked now.\n");
 		}
