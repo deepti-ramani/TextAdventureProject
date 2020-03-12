@@ -76,9 +76,11 @@ CommandList* CreateCommandList()
 	CommandList_Add(cmdListPtr, "ask", HandleAskCommand, true);
 	CommandList_Add(cmdListPtr, "a", HandleAskCommand, true);
 
+	/* listen for sounds in the room you're in */
 	CommandList_Add(cmdListPtr, "listen", HandleListenCommand, true);
 	CommandList_Add(cmdListPtr, "n", HandleListenCommand, true);
 
+	/* get a description of an adjacent room (not as detailed, but still useful)*/
 	CommandList_Add(cmdListPtr, "peek", HandlePeekCommand, true);
 	CommandList_Add(cmdListPtr, "p", HandlePeekCommand, true);
 	/* return the newly created command list */

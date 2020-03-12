@@ -1,3 +1,10 @@
+/*
+Filename: CharacterList.c
+Author: Deepti Ramani
+Last Edited: 3/11/2020
+Brief: This file contains functions for using/creating a list of characters
+ */
+
 #include "CharacterList.h"
 #include "Character.h"
 #include "stdafx.h"
@@ -8,6 +15,7 @@ typedef struct CharacterList
 	CharacterList* next;
 } CharacterList;
 
+/* get number of characters in a list */
 unsigned int CharacterList_GetCount(CharacterList* characterList)
 {
 	/* make sure the list isn't null */
@@ -20,6 +28,7 @@ unsigned int CharacterList_GetCount(CharacterList* characterList)
 	return 1 + CharacterList_GetCount(characterList->next);
 }
 
+/* check if a character is in the list */
 bool CharacterList_IsInList(CharacterList* characterList, Character* character)
 {
 	if (characterList == NULL || character == NULL)
@@ -35,6 +44,7 @@ bool CharacterList_IsInList(CharacterList* characterList, Character* character)
 	return CharacterList_IsInList(characterList->next, character);
 }
 
+/* add a character to the list */
 void CharacterList_Add(CharacterList** characterList, Character* character)
 {
 	CharacterList* NewCharacterList;
@@ -55,6 +65,7 @@ void CharacterList_Add(CharacterList** characterList, Character* character)
 	*characterList = NewCharacterList;
 }
 
+/* remove a character from the list */
 CharacterList* CharacterList_Remove(CharacterList* characterList, Character* character)
 {
 	CharacterList* result;
@@ -78,6 +89,7 @@ CharacterList* CharacterList_Remove(CharacterList* characterList, Character* cha
 	return result;
 }
 
+/* get the first character in the list*/
 Character* CharacterList_GetCurrent(CharacterList* characterList)
 {
 	if (characterList->character != NULL)
@@ -87,6 +99,7 @@ Character* CharacterList_GetCurrent(CharacterList* characterList)
 	return NULL;
 }
 
+/* find a character in the list by name*/
 Character* CharacterList_Find(CharacterList* characterList, const char* characterName)
 {
 	if (characterList == NULL || characterName == NULL)
@@ -102,6 +115,7 @@ Character* CharacterList_Find(CharacterList* characterList, const char* characte
 	return CharacterList_Find(characterList->next, characterName);
 }
 
+/* print out the characters  in a list (name + description) */
 void CharacterList_Print(CharacterList* characterList)
 {
 	unsigned int count = CharacterList_GetCount(characterList);

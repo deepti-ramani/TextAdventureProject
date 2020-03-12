@@ -25,7 +25,7 @@ void LowAccessKeyCard_Take(CommandContext context, GameState* gameState, WorldDa
 	UNREFERENCED_PARAMETER(worldData);
 
 	/* Give the user a hint about how the LowAccessKeyCard might be used, whenever it is picked up. */
-	printf("It can unlock any door...\n");
+	printf("It can unlock any low access door.\n");
 }
 
 

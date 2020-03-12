@@ -25,7 +25,7 @@ void HighAccessKeyCard_Take(CommandContext context, GameState* gameState, WorldD
 	UNREFERENCED_PARAMETER(worldData);
 
 	/* Give the user a hint about how the HighAccessKeyCard might be used, whenever it is picked up. */
-	printf("It can unlock any door...\n");
+	printf("It can unlock any high access door.\n");
 }
 
 
